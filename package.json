@@ -2,7 +2,6 @@
   "name": "autobuild-cli",
   "version": "1.0.0",
   "description": "Create build environment for developing Front-End websites with one simple command.",
-  "main": "index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sid-doshi/autobuild-cli.git"
@@ -12,5 +11,14 @@
   "bugs": {
     "url": "https://github.com/sid-doshi/autobuild-cli/issues"
   },
-  "homepage": "https://github.com/sid-doshi/autobuild-cli#readme"
+  "bin": {
+    "autobuild": "index.js"
+  },
+  "preferGlobal": true,
+  "dependencies": {
+    "clear": "0.0.1",
+    "cli-spinner": "0.2.5",
+    "mkdirp": "0.5.1",
+    "prompt": "1.0.0"
+  }
 }
