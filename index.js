@@ -23,7 +23,7 @@ if (process.argv.length < 3) {
 mkdirp(project.name, (error) => {
     if (error) return
     process.chdir(`./${project.name}`)
-    folderStructure()
+    folderStructure(project.name)
 })
 
 prompt.start()

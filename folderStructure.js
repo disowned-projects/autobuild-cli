@@ -1,7 +1,10 @@
 const mkdirp = require('mkdirp')
 const fs = require('fs')
 
-let folderStructure = () => {
+const createPug = require('./createPug.js')
+const createHead = require('./createHead.js')
+
+let folderStructure = (name) => {
     mkdirp('src/js', () => {
         fs.writeFile('src/js/index.js','')
     })
@@ -9,7 +12,8 @@ let folderStructure = () => {
         fs.writeFile('src/sass/main.sass','')
     })
     mkdirp('src/pug', () => {
-        fs.writeFile('src/pug/index.pug','')
+        fs.writeFile('src/pug/index.pug',createPug(name))
+        fs.writeFile('src/pug/_head.pug',createHead(name))
     })
     mkdirp('vendor')
     mkdirp('dist/js', () => {
