@@ -7,9 +7,9 @@ let createPackage = (result) =>
       "author": "${result.author}",
       "license": "${result.license}",
       "scripts": {
-        "sass": "node-sass --output-style compressed -o dist src/sass vendor/scss",
+        "sass": "node-sass --output-style compressed -o dist src/sass",
         "autoprefix": "postcss -u autoprefixer -r dist/main.css",
-        "js": "babel --presets es2015-without-strict src vendor/js -o dist/index.js --minified",
+        "js": "babel --presets es2015-without-strict src -o dist/index.js --minified",
         "pug": "pug src/pug/index.pug -o dist",
         "serve": "browser-sync start --server dist/ --files 'dist/*' --browser google-chrome",
         "build:css": "npm run sass & npm run autoprefix",
