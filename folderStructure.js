@@ -3,8 +3,9 @@ const fs = require('fs')
 
 const createPug = require('./createPug.js')
 const createHead = require('./createHead.js')
+const createSassReset = require('./createSassReset.js')
 
-let folderStructure = (name) => {
+let folderStructure = ({name,description}) => {
     mkdirp('src/js', () => {
         fs.writeFile('src/js/index.js','')
     })
@@ -14,7 +15,7 @@ let folderStructure = (name) => {
     })
     mkdirp('src/pug', () => {
         fs.writeFile('src/pug/index.pug',createPug(name))
-        fs.writeFile('src/pug/_head.pug',createHead(name))
+        fs.writeFile('src/pug/_head.pug',createHead(name,description))
     })
     mkdirp('src/vendor/js')
     mkdirp('src/vendor/scss')

@@ -1,4 +1,4 @@
-let createHead = (name) =>
+let createHead = (name,description) =>
 `title ${name}
 
 link(rel="stylesheet" href="main.css")
@@ -12,7 +12,7 @@ link(rel="icon" href="favicon.png" type="image/png")
 meta(name="viewport" content="width=device-width, initial-scale=1")
 meta(charset="utf-8")
 meta(http-equiv="x-ua-compatible" content="ie=edge")
-meta(name="description" content="")
+meta(name="description" content="${description}")
 `
 
 module.exports =  createHead

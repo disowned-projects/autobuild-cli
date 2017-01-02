@@ -21,7 +21,6 @@ if (process.argv.length < 3) {
 mkdirp(project.name, (error) => {
     if (error) return
     process.chdir(`./${project.name}`)
-    folderStructure(project.name)
 })
 
 prompt.start()
@@ -38,6 +37,7 @@ console.log()
 prompt.get(topropmt, (error, result) => {
     if (error) return clear()
     result.name = project.name
+    folderStructure(result)
     fs.writeFile( './package.json', createPackage(result), function(err){
       if ( err ) {
         console.log(`Error: ${err}`)
