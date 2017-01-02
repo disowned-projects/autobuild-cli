@@ -1,11 +1,11 @@
 let createPackage = (name) =>
 `doctype html
-html
+html(class="no-js" lang="")
     head
         include _head.pug
     body
         h1 ${name}
-    script(src="dist/js/index.js")
+    script(src="index.js")
 `
 
-module.exports =  createPackage
+module.exports = createPackage

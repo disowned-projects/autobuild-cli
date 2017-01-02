@@ -2,11 +2,9 @@
 
 const fs = require('fs')
 const prompt = require('prompt')
-const colors = require('colors/safe')
-const exec = require('child_process').exec
 const clear = require('clear')
 const mkdirp = require('mkdirp')
-const Spinner = require('cli-spinner').Spinner;
+var spawn = require('cross-spawn')
 
 let project = {}
 let createPackage = require('./createPackage.js')
@@ -35,6 +33,8 @@ let topropmt = [
 ]
 clear()
 console.log('Creating package.json')
+console.log()
+console.log()
 prompt.get(topropmt, (error, result) => {
     if (error) return clear()
     result.name = project.name
@@ -49,14 +49,13 @@ prompt.get(topropmt, (error, result) => {
 })
 
 let npminstall = () => {
-    clear()
-    var spinner = new Spinner('Please wait while installing dependencies.. %s')
-    spinner.setSpinnerString('|/-\\')
-    spinner.start()
-    exec('npm install', (error,data) => {
+    console.log('Please wait while installing dependencies...')
+    console.log('This might take a couple of minutes..')
+    var child = spawn('npm', ['install', '--loglevel','error'],{stdio: 'inherit'});
+    child.on('close',code => {
+        spawn('npm', ['run', 'pug'],{})
         console.log('')
         console.log('Done!')
-        console.log('run `npm start` to start your build environment')
-        spinner.stop()
+        console.log('run `npm start` in your project folder to start your build environment')
     })
 }
