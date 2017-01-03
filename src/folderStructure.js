@@ -3,7 +3,6 @@ const fs = require('fs')
 
 const createPug = require('./createPug.js')
 const createHead = require('./createHead.js')
-const createSassReset = require('./createSassReset.js')
 
 let folderStructure = ({name,description}) => {
     mkdirp('src/js', () => {
@@ -11,20 +10,20 @@ let folderStructure = ({name,description}) => {
         mkdirp('src/js/vendor')
     })
     mkdirp('src/sass', () => {
-        fs.writeFile('src/sass/main.sass','@import "_reset"')
-        fs.writeFile('src/sass/_reset.sass',createSassReset())
+        fs.writeFile('src/sass/main.sass','')
         mkdirp('src/sass/vendor')
     })
     mkdirp('src/pug', () => {
         fs.writeFile('src/pug/index.pug',createPug(name))
         fs.writeFile('src/pug/_head.pug',createHead(name,description))
     })
-    mkdirp('dist', () => {
-        fs.writeFile('dist/index.js','')
-        fs.writeFile('dist/index.html','')
-        fs.writeFile('dist/main.css','')
+    mkdirp('build', () => {
+        fs.writeFile('build/index.js','')
+        fs.writeFile('build/index.html','')
+        fs.writeFile('build/main.css','')
+        mkdirp('build/assets')
     })
-    mkdirp('dist/assets')
+
 
 }
 

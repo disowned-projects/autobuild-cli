@@ -12,7 +12,7 @@
     "url": "https://github.com/sid-doshi/autobuild-cli/issues"
   },
   "bin": {
-    "autobuild": "index.js"
+    "autobuild": "src/index.js"
   },
   "preferGlobal": true,
   "dependencies": {

@@ -54,6 +54,8 @@ let npminstall = () => {
     var child = spawn('npm', ['install', '--loglevel','error'],{stdio: 'inherit'});
     child.on('close',code => {
         spawn('npm', ['run', 'pug'],{})
+        spawn('npm', ['run', 'build:css'],{})
+        spawn('npm', ['run', 'js'],{})
         console.log('')
         console.log('Done!')
         console.log('run `npm start` in your project folder to start your build environment')
