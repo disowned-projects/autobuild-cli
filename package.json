@@ -1,6 +1,6 @@
 {
   "name": "autobuild-cli",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Create build environment for developing Front-End websites with one simple command.",
   "repository": {
     "type": "git",
